@@ -21,10 +21,8 @@ public class HierarchyController {
     private final HierarchyService hierarchyService;
 
     @GetMapping("/{companyId}/hierarchy")
-    @Operation(
-            summary = "Get company hierarchy",
-            description = "Returns the tree Company -> Persons -> Tasks with optional filtering by task ids, person position, and participation type."
-    )
+    @Operation(summary = "Get company hierarchy",
+            description = "Returns the tree Company -> Persons -> Tasks with optional filtering by task ids, person position, and participation type.")
     public HierarchyResponse getHierarchy(
             @Parameter(description = "Company identifier", example = "company-1")
             @PathVariable String companyId,

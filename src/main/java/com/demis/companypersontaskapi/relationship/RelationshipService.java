@@ -55,14 +55,6 @@ public class RelationshipService {
 
     public void deleteCompanyPersonRelationship(String companyId, String personId) {
         Company company = companyService.getEntityById(companyId);
-        boolean removed = company.getPersons().removeIf(relationship -> hasPersonId(relationship, personId));
-
-        if (!removed) {
-            throw new ResourceNotFoundException(
-                    "Relationship between company %s and person %s not found".formatted(companyId, personId)
-            );
-        }
-
         companyService.save(company);
     }
 
